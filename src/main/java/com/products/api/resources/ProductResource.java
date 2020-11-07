@@ -35,26 +35,26 @@ public class ProductResource {
 	}
 	
 	@GetMapping("/products/{id}")
-	@ApiOperation(value = "return one product from database by id")
+	@ApiOperation(value = "return product from database by id")
 	public Product findProductById(@PathVariable(value = "id") long id){
 		return productRepo.findById(id);
 	}
 	
 	
 	@PostMapping("/product")
-	@ApiOperation(value = "insert one product into database")
+	@ApiOperation(value = "insert product into database")
 	public Product saveProduct(@RequestBody Product product) {
 		return productRepo.save(product);	
 	}
 	
 	@PutMapping("/product")
-	@ApiOperation(value = "update one product from database")
+	@ApiOperation(value = "update product from database")
 	public Product editProduct(@RequestBody Product product) {
 		return productRepo.save(product);	
 	}
 	
 	@DeleteMapping("/product/{id}")
-	@ApiOperation(value = "delete one product from database by id")
+	@ApiOperation(value = "delete product from database by id")
 	public void deleteProductById(@PathVariable(value ="id") long id) {
 		productRepo.deleteById(id);	
 	}
