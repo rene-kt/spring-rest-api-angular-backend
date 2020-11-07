@@ -3,6 +3,7 @@ package com.products.api.resources;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -30,9 +31,17 @@ public class ProductResource {
 		return productRepo.findById(id);
 	}
 	
+	
 	@PostMapping("/product")
 	public Product saveProduct(@RequestBody Product product) {
 		return productRepo.save(product);	
 	}
+	@DeleteMapping("/product/{id}")
+	public void deleteProductById(@PathVariable(value ="id") long id) {
+		productRepo.deleteById(id);	
+	}
+	
+	
+	
 
 }
